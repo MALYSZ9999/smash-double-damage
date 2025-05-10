@@ -1,0 +1,31 @@
+name: Build NRO
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        target: aarch64-skyline-switch
+        components: rust-src
+        override: true
+
+    - name: Install cargo-skyline
+      run: cargo install cargo-skyline
+
+    - name: Build NRO
+      run: cargo skyline build
+
+    - name: Upload NRO
+      uses: actions/upload-artifact@v3
+      with:
+        name: double_damage.nro
+        path: target/aarch64-skyline-switch/release/double_damage.nro
