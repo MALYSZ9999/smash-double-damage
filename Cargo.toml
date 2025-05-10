@@ -1,0 +1,11 @@
+[package]
+name = "double_damage"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+skyline = "0.2"
+skyline_smash = "0.1"
