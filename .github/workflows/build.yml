@@ -25,7 +25,7 @@ jobs:
       run: cargo skyline build
 
     - name: Upload NRO
-      uses: actions/upload-artifact@dcd6a4fd7c69dcad2c8c20504723438879536d42
+      uses: actions/upload-artifact@v2
       with:
         name: double_damage.nro
         path: target/aarch64-skyline-switch/release/double_damage.nro
